@@ -29,7 +29,7 @@ window.onload = function() {
         game_.rootScene.addEventListener(Event.TOUCH_START, function(e) {
 
 	if (e.x > kuma.x) { // if (もしも) タッチした横位置がクマの横位置よりも右側(大きい)かったら
-		var sound = game.assets['./sound/coin03.wav'].clone();
+		var sound = game_.assets['./sound/coin03.wav'].clone();
 		sound.play();
 		speed = 1; // クマのスピードを1にする
 	} else { // それ以外のときは
