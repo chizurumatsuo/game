@@ -10,7 +10,7 @@ window.onload = function() {
 
 	game_.onload = function() { // ゲームの準備が整ったらメインの処理を実行します。
 		var kuma = new Sprite(141, 290);  // クマというスプライト(操作可能な画像)を準備すると同時に、スプライトの表示される領域の大きさを設定しています。
-		var kari = new Sprite(8, 8);  // クマというスプライト(操作可能な画像)を準備すると同時に、スプライトの表示される領域の大きさを設定しています。
+		var kari = new Sprite(8, 8);
 		var lr=0;
 		var myLabel = new Label();
 		myLabel.font = '14px "Arial"';
@@ -21,9 +21,9 @@ window.onload = function() {
 		kuma.image = game_.assets['./img/wait.png']; // クマにあらかじめロードしておいた画像を適用します。
 		kuma.x = 100; // クマの横位置を設定します。
 		kuma.y = 120; // クマの縦位置を設定します。
-		kari.image = game_.assets['./img/kari.png']; // クマにあらかじめロードしておいた画像を適用します。
-		kari.x = 64; // クマの横位置を設定します。
-		kari.y = 64; // クマの縦位置を設定します。
+		kari.image = game_.assets['./img/kari.png'];
+		kari.x = 64;
+		kari.y = 64;
 		kari.scaleX = 8;
 		kari.scaleY = 8;
 		game_.rootScene.addChild(myLabel);
@@ -31,11 +31,31 @@ window.onload = function() {
 		game_.rootScene.addChild(kari); // ゲームのシーンにクマを表示させます。
 		game_.rootScene.backgroundColor  = '#7ecef4'; // ゲームの動作部分の背景色を設定しています(16進数)。
 		var speed = 1;// クマのスピードを表す変数(ハコ)を用意しておきます。
+		kari.tl.moveTo(836,64 ,120);
+		game_.rootScene.tl.delay(60).then(function(){var sound = game_.assets['./sound/coin03.wav'].clone();
+			sound.play();}
+		);
+		game_.rootScene.tl.delay(60).then(function(){var sound = game_.assets['./sound/coin03.wav'].clone();
+			sound.play();}
+		); 
+		game_.rootScene.tl.delay(60).then(function(){var sound = game_.assets['./sound/coin03.wav'].clone();
+			sound.play();}
+		); 
+		game_.rootScene.tl.delay(30).then(function(){var sound = game_.assets['./sound/coin03.wav'].clone();
+			sound.play();}
+		); 
+		game_.rootScene.tl.delay(30).then(function(){var sound = game_.assets['./sound/coin03.wav'].clone();
+			sound.play();}
+		); 
+		game_.rootScene.tl.delay(30).then(function(){var sound = game_.assets['./sound/coin03.wav'].clone();
+			sound.play();}
+		); 
 
 		// シーンに「毎フレーム実行イベント」を追加します。
 		game_.rootScene.addEventListener(Event.ENTER_FRAME, function() {
 
 		kuma.x += speed; // 毎フレーム、クマの座標を右に1pxずつずらす
+
 	});
 
         // シーンに「タッチイベント」を追加します。
@@ -75,4 +95,6 @@ window.onload = function() {
 
 }
 game_.start(); // ゲームをスタートさせます
+
+
 };
